@@ -9,6 +9,17 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  system.debugContext: 'true' # o 'false' según tu requerimiento
+resources:
+  repositories:
+    - repository: self
+      type: git
+      name: js-e2e-express-server-test
+      checkoutOptions:
+        fetchDepth: 1
+
+
 steps:
 - task: NodeTool@0
   inputs:
